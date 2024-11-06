@@ -1,0 +1,14 @@
+[monitoring_stack]
+192.168.56.13
+
+[lamp_stack]
+192.168.56.17 ansible_user=rcatapang
+
+[elastic_stack]
+192.168.56.17 ansible_user=rcatapang
+
+[CentOS]
+192.168.56.17 ansible_user=rcatapang
+
+[Ubuntu]
+192.168.56.13
