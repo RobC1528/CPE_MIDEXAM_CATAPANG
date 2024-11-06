@@ -25,9 +25,9 @@
           - net-tools
         state: present
 
-# ------------------------------------------------------
+# ====================================================================
 # Elastic Stack Installation (Elasticsearch, Logstash, Kibana, Nagios)
-# ------------------------------------------------------
+# ===================================================================
 - name: Install Elastic Stack on CentOS
   hosts: elastic_stack
   become: yes
@@ -70,24 +70,11 @@
         state: latest
       when: ansible_distribution == "CentOS"
 
-
-#    - name: Start Elasticsearch service
-#      service:
-#        name: elasticsearch
-#        state: restarted
-#        enabled: yes
-
     - name: Install Logstash
       when: ansible_os_family == 'CentOS'
       yum:
         name: "https://artifacts.elastic.co/downloads/logstash/logstash-{{ elastic_stack.logstash_version }}-x86_64.rpm"
         state: present
-
-#    - name: Start Logstash service
-#      service:
-#        name: logstash
-#        state: started
-#        enabled: yes
 
     - name: Install Kibana
       when: ansible_os_family == 'CentOS'
@@ -101,9 +88,9 @@
 #        state: started
 #        enabled: yes
 
-# ------------------------------------------------------
+# ===============================================================
 # Monitoring Tools Installation (Prometheus, Grafana, InfluxDB)
-# ------------------------------------------------------
+# ===============================================================
 - name: Install Monitoring Tools on Ubuntu
   hosts: monitoring
   become: yes
@@ -145,9 +132,9 @@
 #        state: restarted
 #        enabled: yes
 
-# ------------------------------------------------------
-# LAMP Stack Installation (Apache, PHP, MariaDB)
-# ------------------------------------------------------
+# ==============================================
+# LAMP Stack (Apache, PHP, MariaDB)
+# ==============================================
 - name: Install LAMP Stack on CentOS
   hosts: lamp_stack
   become: yes
